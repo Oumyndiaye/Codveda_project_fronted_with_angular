@@ -1,0 +1,41 @@
+<header class="navbar">
+  <div class="logo-and-auth">
+    <div class="logo">🛍️ GigaShop</div>
+    <div class="auth-links" *ngIf="!isLoggedIn">
+      <a routerLink="/signup">Inscription</a>
+      <a routerLink="/login">Connexion</a>
+    </div>
+    <div class="auth-links" *ngIf="isLoggedIn">
+      <a (click)="onLogout()" style="cursor:pointer;">Déconnexion</a>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <a routerLink="/">Accueil</a>
+    <a routerLink="/create">Vendre un article</a>
+  </nav>
+</header>
+
+<div class="detail-container" *ngIf="item">
+  <div class="image-wrapper">
+    <img [src]="item.imageUrl" alt="{{ item.title }}">
+  </div>
+
+  <div class="info-wrapper">
+    <h1>{{ item.title }}</h1>
+    <h2 class="price">€ {{ item.price }}</h2>
+    <p>{{ item.description }}</p>
+
+    <div class="actions">
+      <button class="btn-update" [routerLink]="['/edit', item._id]">
+        Modifier
+      </button>
+      <button class="btn-delete" (click)="deleteItem(item._id)">
+        Supprimer
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading">Chargement...</div>
+<div *ngIf="error" class="error">{{ error }}</div>

@@ -1,0 +1,46 @@
+<header class="navbar">
+  <div class="logo-and-auth">
+    <div class="logo">🛍️ GigaShop</div>
+    <div class="auth-links" *ngIf="!isLoggedIn">
+      <a (click)="setMode(false)">Inscription</a>
+      <a  (click)="setMode(true)">Connexion</a>
+    </div>
+    <div class="auth-links" *ngIf="isLoggedIn">
+      <a (click)="onLogout()" style="cursor:pointer;">Déconnexion</a>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <a routerLink="/">Accueil</a>
+    <a routerLink="/create">Vendre un article</a>
+  </nav>
+</header>
+<div class="auth-container">
+  <div class="auth-card">
+    <h2></h2>
+
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="exemple@domaine.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" placeholder="Votre mot de passe" required>
+      </div>
+
+        <button type="submit" class="btn-primary">
+        {{ isLoginMode ? 'Connexion' : 'Inscription' }}
+        </button>
+    </form>
+
+    <p class="toggle-text">
+      {{ isLoginMode ? "Vous n'avez pas encore de compte ?" : 'Vous avez déjà un compte ?' }}
+      <a href="#" (click)="toggleMode()">
+        {{ isLoginMode ? 'Inscrivez-vous' : 'Connectez-vous' }}
+      </a>
+    </p>
+
+  </div>
+</div>

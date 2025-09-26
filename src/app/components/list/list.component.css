@@ -1,0 +1,200 @@
+/* Reset margin & padding */
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100% !important;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0 !important;
+}
+
+.navbar {
+  width: 100%;           /* occupe toute la largeur */
+  position: fixed;       /* colle en haut */
+  top: 0;
+  left: 0;
+  background: #1e90ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;    /* ajuster si besoin */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 1rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffdd57;
+  cursor: pointer;
+}
+
+.logo-and-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* espace entre logo et liens auth */
+}
+
+.auth-links a {
+  margin-left: 0.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.auth-links a:hover {
+  background-color: #6eb5ff;
+  color: white;
+}
+
+.main-nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+
+}
+
+.main-nav a:hover {
+    background-color: #6eb5ff;
+    color: white;
+
+}
+
+/* Hero Section */
+.hero {
+  height: 320px;
+  background-image: url('https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140603_960_720.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  width: 100% !important;           /* occupe toute la largeur */
+  margin: 0 !important;               /* important pour coller aux bords */
+
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Items Grid */
+.container {
+  padding: 2rem;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.item-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 0.5rem;
+  text-align: start;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.overlay h5 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6eb5ff;
+  margin-top: 5px;
+}
+.notifications {
+  position: relative;
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 250px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.notif-item {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+.notif-item:last-child {
+  border-bottom: none;
+}

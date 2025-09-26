@@ -1,0 +1,59 @@
+<header class="navbar">
+  <div class="logo-and-auth">
+    <div class="logo">🛍️ GigaShop</div>
+    <div class="auth-links"  *ngIf="!isLoggedIn">
+      <a routerLink="/signup">Inscription</a>
+      <a routerLink="/login">Connexion</a>
+    </div>
+    <div class="auth-links" *ngIf="isLoggedIn">
+      <a (click)="onLogout()" style="cursor:pointer;">Déconnexion</a>
+    </div>
+  </div>
+  <!--
+<div class="notifications">
+  <button class="btn btn-light position-relative">
+    🔔
+    <span *ngIf="newNotifications > 0"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{ newNotifications }}
+    </span>
+  </button>
+
+  <div *ngIf="notifications.length > 0" class="notif-dropdown">
+    <div *ngFor="let notif of notifications" class="notif-item">
+      {{ notif.message }}
+    </div>
+  </div>
+</div>
+-->
+
+  <nav class="main-nav">
+    <a routerLink="/">Accueil</a>
+    <a routerLink="/create">Vendre un article</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Vendez et Achetez vos objets facilement !</h1>
+    <p>Découvrez une plateforme simple pour vendre vos articles ou trouver ce que vous cherchez.</p>
+  </div>
+</section>
+
+<main class="container">
+  <div class="items-grid" *ngIf="items.length > 0 ">
+    <div class="item-card" *ngFor="let item of items">
+      <div class="image-container" [routerLink]="['/detail', item._id]">
+        <img [src]="item?.imageUrl" alt="{{item.title}}">
+        <div class="overlay">
+          <h3>{{ item.title }}</h3>
+          <h5>€ {{ item.price }}</h5>
+        </div>
+      </div>
+      <div class="image-container" *ngIf="items.length === 0">
+          <p>Aucun article à vendre</p>
+      </div>
+    </div>
+  </div>
+</main>
